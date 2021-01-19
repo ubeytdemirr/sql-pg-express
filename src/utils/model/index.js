@@ -4,8 +4,6 @@ class Model {
     constructor(name){
         this.name=name;
     }
-
-
     async run(query){
         try{
             const response = await db.query(query);

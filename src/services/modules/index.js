@@ -2,11 +2,11 @@ const router = require("express").Router();
 
 const Model = require("../../utils/model")
 
-const Tutors = new Model('tutors');
+const Modules = new Model('modules');
 
 router.get("/", async (req, res, next) => {
   try {
-    const response  = await Tutors.findOne();
+    const response  = await Modules.findOne();
     res.send(response);
   } catch (e) {
     console.log(e);
@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const {rows} = await Tutors.findById(req.params.id);
+    const {rows} = await Modules.findById(req.params.id);
     res.send(rows);
   } catch (e) {
     console.log(e);
@@ -26,7 +26,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    const response = await Tutors.save(req.body);
+    const response = await Modules.save(req.body);
     res.send(response)
   } catch (e) {
     console.log(e)
@@ -37,7 +37,7 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:id", async (req, res, next) => {
   try {
-    const response = await Tutors.findByIdAndUpdate(req.params.id,req.body)
+    const response = await Modules.findByIdAndUpdate(req.params.id,req.body)
     res.send(response);
   } catch (e) {
     res.status(500).send(e);
@@ -46,7 +46,7 @@ router.put("/:id", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
   try {
-    const { rows } = await Tutors.findByIdAndDelete(req.params.id);
+    const { rows } = await Modules.findByIdAndDelete(req.params.id);
     res.send(rows);
   } catch (e) {
     console.log(e);
