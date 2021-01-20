@@ -6,7 +6,7 @@ const Modules = new Model('modules');
 
 router.get("/", async (req, res, next) => {
   try {
-    const response  = await Modules.findOne();
+    const response  = await Modules.join("tutors","tutorid");
     res.send(response);
   } catch (e) {
     console.log(e);

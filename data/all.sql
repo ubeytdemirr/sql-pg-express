@@ -86,7 +86,7 @@ CREATE TABLE  IF NOT EXISTS
 
 CREATE TABLE IF NOT EXISTS 
     
-    scores (
+    exams (
 
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
@@ -96,12 +96,19 @@ CREATE TABLE IF NOT EXISTS
 
         tutorId INTEGER NOT NULL,
 
+        correct INTEGER NOT NULL,
+
+        wrong INTEGER NOT NULL,
+
+        unanswered INTEGER NOT NULL,
+
         FOREIGN KEY (moduleId) REFERENCES modules,
 
-        FOREIGN KEY (studentId) REFERENCES students,
+        FOREIGN KEY (studentId) REFERENCES students
 
-        FOREIGN KEY (tutorId) REFERENCES tutors
-    
     );
+
+
+
 
 
